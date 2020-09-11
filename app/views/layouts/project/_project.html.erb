@@ -1,0 +1,58 @@
+<div class="w-25-in p-2 bg-white mb-2 mr-1 ml-1 border-green border-radius-3">
+    <div class="title-card text-center text-uppencase ellipsis p-1 text-uppercase"> <%= @i['project_title'] %> </div>
+      <% picture = Project.find((@i['project_id']).to_i) %>
+      <% if picture.project_img.attached? %>
+          <%= image_tag picture.project_img, class:"card-img-top img-fluid card-img heDcVB" %>
+      <% else %>
+          <img class="card-img-top img-fluid heDcVB" src="/directory/user.jpeg" alt="projet" />
+      <% end %>
+      <div class="">
+        <h6 class="card-title flex justify-content-center mr-bg">
+          <div>
+              <% if picture.user.user_avatar.attached? %>
+                  <img class="card-user-top" src="/directory/user.jpeg" alt="User" />
+              <% else %>
+                  <img class="card-user-top" src="/directory/user.jpeg" alt="User" />
+              <% end %>
+          </div>
+          <div class="wd-17">
+            <p class="contain-xml"><%= @i['user_own_last'] %> <%= @i['user_own_first'] %></p>
+            <p class="contain-xml-1" style="text-transform: uppercase;"><%= @i['project_localisation'] %></p>
+          </div>
+        </h6>
+        <h6 class ="catg-item text-center trans-17"><%= @i['project_categorie'] %> && <%= @i['project_odd'] %> </h6>
+        <div class="flex justify-content-space pv-2 pt-top-2 fv-90">
+          <div class="details-item text-left" style="margin-left:1%">
+            <span style="font-weight: bold;"><%= @i['collect'] %></span>
+            <br>
+            <span class="total-item">
+              sur
+              <span style="font-weight: bold;"><%= @i['project_jeutons'] %></span>
+            </span>
+          </div>
+          <div class="details-item-2 text-right" style="margin-right:1%">
+              2 <br> <span class="total-item"> valifunders</span>
+          </div>
+        </div>
+        <div class="progress stab bg-gray">
+          <div class="progress-bar bg-green h-auto bg-color-green" role="progressbar" style="width:<%= @i['pourcentage'] %>%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <div class="flex justify-content-space pv-2 fv-90">
+          <div class="details-item text-center"><span style="font-weight:bold;"><%= @i['pourcentage'] %></span>%</div>
+          <div class="details-item-3 text-center">J - <span style="font-weight: bold;" id="hour_in_project1 %>"><%= @i['rest_day'] %></span></div>
+        </div>
+          <p class="card-text card-heigth pr-descript fz-80"><%= @i['project_description'] %></p>
+          <div class='flex p-2'>
+            <div class="w-75">
+              <button class ="btn btn-primary wd-btn-98 bg-color-green btn-outline-none">
+                <%= link_to 'Details', dashboard_project_path(@i['project_id']), class:'text-white' %>
+              </button>
+            </div>
+            <div class='di-like w-25'>
+              <i class="fa fa-heart u-like pointer like-every-where"></i> <br>
+            </div>
+          </div>
+      </div>
+  </div>
+
+

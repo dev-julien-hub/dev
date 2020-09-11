@@ -1,0 +1,136 @@
+      <div class="container pt-5" id="section-profil">
+          <div class="flex flex-md-column flex-md-spec flex-xl-row align-items-center justify-content-center w-100">
+              <div class="img-setting mt-4 w-15 flex-end-spec w-maw">
+                <img src="/directory/user.jpeg" alt="Utilisateur image" class="h-img-max img-width rounded-circle">
+                <!--
+                <div class="w-XeCr text-center position-absolute flex align-items-center justify-content-end">
+                    <button class="btn btn-default btn-hover-setting  transform-translate-x-50" data-toggle="modal" data-target="#modify-profile" id="modify_profile">
+                      <img src="/svg/dropdown/modify_my_profil.svg" class="w-XeCr r-RiRcV" alt="modify">
+                    </button>
+                </div>
+                 -->
+                  </div>
+              <div class="flex font-size-14 flex-md-spec-end">
+                <div class="">
+                    <div class="p-2">
+                        <label for="first_name">Prénom </label><br>
+                        <input type="text" class="text-center border-radius-3 border-color bd-Xccer bg-white remove-attr-dis" id="first_name" value="<%= current_user.first %>" name="first name" placeholder="prénom" disabled>
+                    </div>
+                    <div class="p-2">
+                        <label for="profession">Profession </label><br>
+                        <input type="text" class="text-center border-color bd-Xccer border-radius-3 bg-white remove-attr-dis" id="profession" name="profesion" placeholder="Profession" disabled>
+                    </div>
+                </div>
+                <div class="">
+                    <div class="p-2">
+                        <label for="name">Nom </label><br>
+                        <input type="text" class="text-center border-color bd-Xccer border-radius-3 bg-white remove-attr-dis" value="<%= current_user.last %>" id="name" name="name" placeholder="Nom" disabled>
+                    </div>
+                    <div class="p-2">
+                        <label for="place">Lieu de profession </label><br>
+                        <input type="text" class="text-center border-color bd-Xccer border-radius-3 bg-white remove-attr-dis" id="place" name="place" placeholder="Lieu de profession" disabled>
+                    </div>
+                </div>
+              </div>
+          </div>
+          <div class="text-center p-4 ml-2 font-size-14">
+              Valifunder depuis la date d'inscription
+          </div>
+      </div>
+
+      <hr>
+  <!-- Modal -->
+  <div id="modify-profile" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <form>
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+              <img src="/directory/user.jpeg" alt="modify avatar" class=" ml-4 mt-2 w-25 img-change pointer">
+            <div class="modal-body">
+              <div class="w-100 font-size-14">
+                  <div class="flex-md-column flex-md-grow-1 flex-xl-row flex align-items-center justify-content-center">
+                      <div class="w-50">
+                          <div class="p-2">
+                              <label for="first_name">Prénom </label>
+                              <input type="text" class="text-center border-radius-3 border-color bd-Xccer bg-white remove-attr-dis" id="firstname" name="first name" value="prénom">
+                          </div>
+                          <div class="p-2">
+                              <label for="profession">Profession </label>
+                              <input type="text" class="text-center border-color bd-Xccer border-radius-3 bg-white remove-attr-dis" id="profession-edit" name="profesion" value="Profession">
+                          </div>
+                      </div>
+                      <div class="w-50">
+                          <div class="p-2">
+                              <label for="name">Nom </label>
+                              <input type="text" class="text-center border-color bd-Xccer border-radius-3 bg-white remove-attr-dis" id="name-edit" name="name" Value="Nom">
+                          </div>
+                          <div class="p-2">
+                              <label for="place">Lieu de profession </label>
+                              <input type="text" class="text-center border-color bd-Xccer border-radius-3 bg-white remove-attr-dis" id="place-edit" name="place" value="Lieu de profession">
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn w-100 btn-info bg-color border-color" id="save-change">Sauvgarder</button>
+            </div>
+          </div>
+      </form>
+    </div>
+  </div>
+  <div class=" mt-4">
+      <div class="header">
+          <div class="container">
+              <h3 class="text-xl-center text-color-marron mb-5 text-lg-left text-uppercase">
+                  Mes projets
+              </h3>
+          </div>
+      </div>
+      <ul class="nav nav-tabs">
+        <li class="w-15 width-reform-tab"><a class="nav-link nav-fill text-capitalize font-size-14 text-dark active" data-toggle="tab" href="#soutenus">Projet soutenus</a></li>
+        <li class="w-15 width-reform-tab"><a class="nav-link nav-fill text-capitalize font-size-14 text-dark" data-toggle="tab" href="#suivis">Projet suivis</a></li>
+      </ul>
+
+      <div class="tab-content bg-spec">
+        <div id="soutenus" class="tab-pane active font-size-14">
+            <div class="container p-2 flex flex-wrap">
+              <% for @i in 0..6 %>
+                <%= render 'layouts/project/project' %>
+              <% end %>
+            </div>
+        </div>
+        <div id="suivis" class="tab-pane font-size-14">
+            <div class="container p-2 flex flex-wrap">
+              <% for @i in 1..2 %>
+                <%= render 'layouts/project/project' %>
+              <% end %>
+            </div>
+            </div>
+        </div>
+      </div>
+  </div>
+  <script type="text/javascript" charset="utf-8">
+    $(document).ready(function(){
+        $('#save-change').click(function (){
+            const a = $('#firstname').val();const b = $('#place-edit').val();
+            const c = $('#name-edit').val();const d = $('#profession-edit').val()
+            if (a && b && c && d){
+                const table = [a,b,c,d];
+                send_value_to_json(table);$('#first_name').val(a);$('#place').val(b);
+                $('#profession').val(d);$('#name').val(c);
+            }
+            else{
+                alert('something is wrong');
+            }
+        });
+    });
+    function send_value_to_json(tab){
+        console.log('prenom: '+ tab[0]);
+        console.log('place: '+ tab[1]);
+        console.log('nom: '+ tab[2]);
+        console.log('profession: '+ tab[3]);
+    }
+  </script>

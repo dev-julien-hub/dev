@@ -1,0 +1,43 @@
+<section id="welcome">
+  <div class="font-size-14 welcome-message">
+    <div class="bg-url-valintanana w-100 _RccXzD">
+      <div class="flex w-100 h-90 justify-content-center align-items-center text-center" id="valintanana">
+        <div class="text-white w-100 font-size-18 p-3">
+          <h1 class="text-uppercase font-weight-bold fond text-color-marron">Soutenir les bonnes initiatives,</h1>
+          <h1 class="fond">et être acteur du développement</h1> <br>
+          <p class="font-shadow">Valintanana est une plateforme de crowdfunding pour les projet universitaires<br><br>
+          axée sur les objectifs de Développement Durables à Madagascar</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="idol w-100">
+        <div class="w-100 p-2" id="project-section">
+          <div class="h-100 w-25 text-color-marron p-3 mt-5">
+            <h4 class="text-uppercase font-weight-bold">Projet à la une</h4>
+          </div>
+          <div class="h-100 w-100 flex">
+              <% for @i in @project %>
+                  <%= render 'layouts/project/project' %>
+              <% end %>
+          </div>
+        </div>
+        <div class="_ffECve mt-5">
+          <div class="w-100 flex justify-content-center align-items-center sIeeVs">
+            <a href="#" class="button-show h-100 sIeeVs text-uppercase btn text-white w-25 text-decoration-none  bg-color flex align-items-center justify-content-center">
+              Voir tous les projets
+            </a>
+          </div>
+        </div>
+    </div>
+      <div class="h-100 text-color-marron pl-4 mb-5 ml-5 mt-1">
+        <h4 class="text-uppercase font-weight-bold">Bons Plans</h4>
+      </div>
+      <div class="h-100 w-100 flex contain-menu-good">
+          <% for @i in 1..4 %>
+              <%= render 'layouts/planification/planification' %>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="63.5mm"
+   height="18.520834mm"
+   viewBox="0 0 63.5 18.520834"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
+   sodipodi:docname="Bouton aperçu de la page de projet.svg"
+   inkscape:export-filename="C:\Users\ER\Desktop\VALINTANANA\Maquette\Maquette finale\Mon compte\Mon profil\Mes projets\Bouton lancer la campagne.png"
+   inkscape:export-xdpi="180"
+   inkscape:export-ydpi="180">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1"
+     inkscape:cx="82.111228"
+     inkscape:cy="19.428511"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     showborder="false"
+     inkscape:window-width="1280"
+     inkscape:window-height="898"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-10.46994,-188.36964)">
+    <g
+       transform="translate(-91.659233,-141.30639)"
+       id="g1483">
+      <rect
+         style="fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:0.07302635;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect1277-6-0-9-3"
+         width="63.5"
+         height="18.520834"
+         x="102.12917"
+         y="329.67603"
+         rx="0.79374999"
+         ry="0.79374999" />
+      <g
+         transform="translate(2.5795307e-6,1.3254889)"
+         id="g1370">
+        <text
+           id="text823-0-5-0"
+           y="344.46066"
+           x="108.04716"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.23333311px;line-height:1.25;font-family:Roboto;-inkscape-font-specification:'Roboto Bold';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+           xml:space="preserve"><tspan
+             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.23333311px;font-family:Roboto;-inkscape-font-specification:'Roboto Bold';fill:#ffffff;stroke-width:0.26458332"
+             y="344.46066"
+             x="108.04716"
+             id="tspan821-8-5-86"
+             sodipodi:role="line">Aperçu de la page de projet</tspan></text>
+        <g
+           style="color:#b39361;fill:none;stroke:#ffffff;stroke-width:1;stroke-linecap:square;stroke-linejoin:miter;stroke-opacity:1"
+           id="g1247"
+           transform="matrix(0.52916667,0,0,0.52916667,127.52917,330.07291)">
+          <path
+             id="path1233"
+             d="m 22,12 c 0,0 -3,6 -10,6 C 5,18 2,12 2,12 2,12 5,6 12,6 c 7,0 10,6 10,6 z"
+             inkscape:connector-curvature="0"
+             style="stroke:#ffffff;stroke-opacity:1" />
+          <circle
+             id="circle1235"
+             r="3"
+             cy="12"
+             cx="12"
+             style="stroke:#ffffff;stroke-opacity:1" />
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

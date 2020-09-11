@@ -1,0 +1,53 @@
+    <section id="takalo">
+        <div class="_CQxoi">
+            <div class="flex justify-content-center align-items-end h-75 w-100">
+                <%= image_tag('tk.jpg',  class:'w-20 h-100') %>
+            </div>
+          <div class="w-100 text-center ml-3">
+            <h2>Takalo (<small>TK</small>)</h2>
+          </div>
+        </div>
+        <div class="UieRSsAz w-100 flex flex-column justify-content-between align-items-center">
+            <div class="w-75 h-72">
+               Le <strong>Takalo</strong> est le devise utiliser sur le plateforme valintanana. Vous permettant de soutenir les bonnes initiatives. <br>
+                takalo(TK) vaut  1000 Ariary (Ar) <br>
+                Vous pouvez vendre et acheter vos takalo à tous moment
+            </div>
+            <div class="w-75 h-25">
+                <span>Vos takalo restant</span>: <strong>15</strong>
+            </div>
+        </div>
+        <div class="flex flex-row w-100 h-100 align-items-center justify-content-end">
+            <div class="sales-tk w-75 p-4">
+                <button class="btn text-white font-weight-bold w-100 p-3 bg-color-green" disabled> Acheter des takalo</button>
+                <input type="number" class="form-control w-100 mt-3 mb-3 h-15 border-color" id="value-sales" placeholder="Jeutons ...">
+                <input type="text" class="form-control w-100 mb-3 h-15 border-color" id="response-change" placeholder="Value">
+                <button class="btn btn-primary w-100 p-3 bg-color border-color"> Valider </button>
+            </div>
+        </div>
+        <div class="flex flex-row w-100 h-100 align-items-center justify-content-start">
+            <div class="sales-tk w-75 p-4">
+                <button class="btn text-white w-100 bg-dark font-weight-bold p-3 border-color" disabled> Vendre mes takalo</button>
+                <input type="number" class="form-control w-100 mt-3 mb-3 h-15 border-color" id="value-order" placeholder="Jeutons ...">
+                <input type="text" class="form-control w-100 mb-3 h-15 border-color" id="response-order" placeholder="Value">
+                <button class="btn btn-primary w-100 p-3 bg-color border-color"> Valider</button>
+            </div>
+        </div>
+        <div class="bg-white">api</div>
+        <div class="bg-dfault"></div>
+
+    </section>
+<script>
+    $('#value-sales').bind('input', function() {
+        $('#response-change').val( parseFloat($('#value-sales').val())*1000+ " Ariary")
+    });
+    $('#response-change').bind('input', function() {
+        $('#value-sales').val( parseFloat($('#response-change').val())/1000 +'Ariary')
+    });
+    $('#value-order').bind('input', function() {
+        $('#response-order').val( parseFloat($('#value-order').val())*1000 +' Ariary')
+    });
+    $('#response-order').bind('input', function() {
+        $('#value-order').val( parseFloat($('#response-order').val())/1000 +'Ariary')
+    });
+</script>

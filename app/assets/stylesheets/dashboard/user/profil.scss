@@ -1,0 +1,67 @@
+// Place all the styles related to the dashboard/user/profil controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+.h-img-max{
+  height: 120px;
+}
+.img-width{
+ width: 120px !important;
+}
+.flex{
+  display: flex;
+}
+.border-radius-3{
+  border-radius: 3px;
+}
+.bd-Xccer{
+  border:1px solid;
+}
+.w-XeCr{
+  width:20px;
+}
+.r-RiRcV{
+  right: 25% !important;
+}
+.w-15{
+  width:15%;
+}
+.transform-translate-x-50{
+  transform: translateX(-50px);
+}
+.btn-hover-setting:hover{
+  background: #2125292e;
+  border:1px solid #2125295c;
+}
+.btn-hover-setting:focus{
+  box-shadow: none !important;
+}
+.img-change{
+  height: 100px;
+  border-radius:7%;
+}
+.pointer{
+  cursor:pointer;
+}
+.w-10{
+  width:10%;
+}
+.bg-spec{
+  background: #0202020a;
+}
+@media only screen and(min-width: 461px) and (max-width: 992px) {
+  .flex-md-spec{flex-direction: row !important;}
+  .width-reform-tab{width:40% !important;}
+}
+@media only screen and (max-width: 460px) {
+  .flex-md-spec-end{flex-direction: column !important;}
+  .flex-md-spec{flex-direction: row !important;}
+  .width-reform-tab{width:50% !important;}
+}
+@media only screen and (max-width: 992px) {
+  #section-profil{padding-top:0px !important;}
+  .flex-md-spec{flex-direction: column !important;}
+  .flex-end-spec{align-self: center !important;}
+  .w-maw{width:100% !important;text-align: center;}
+}

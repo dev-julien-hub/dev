@@ -1,0 +1,93 @@
+<div class="container">
+    <div class="flex p-5">
+        <div class="w-40 pictur-size align-self-center text-right">
+            <img src="/directory/user.jpeg" class="user-profile" alt="">
+        </div>
+        <div class="w-60">
+            <div class="w-100 flex justify-content-center">
+                <div class="w-50 border-contribution text-center border-bottom-0 font-weight-bolder">
+                    <img src="/svg/dropdown/Fichelivraison.svg" alt="fiche de livraison"> Fiche de livraison
+                </div>
+            </div>
+            <div class="border-contribution">
+                <div class="w-100 text-center">
+                    Dans le cas où mes contrepartie me seront livrées
+                </div>
+                <div class="container flex p-4 w-100">
+                    <div class="w-50 p-1">
+                        <p>Adress</p>
+                        <div class="w-100 text-center brd-br">
+                            Votre Adresse
+                        </div>
+                    </div>
+                    <div class="w-50 p-1">
+                        <p>Région</p>
+                        <div class="w-100 text-center brd-br">Région</div>
+                    </div>
+                </div>
+                <div class="container w-100 flex p-2">
+                    <div class="w-50 p-1">
+                        <p>Numéro de télephone</p>
+                        <div class="w-100 text-center brd-br">Numéro de télephone</div>
+                    </div>
+                    <div class="w-50 p-1">
+                        <p>Mail</p>
+                        <div class="w-100 text-center brd-br">Mail</div>
+                    </div>
+                </div>
+                <button class="btn w-100 btn-primary color-brown" data-toggle="modal" data-target="#modify-livraison"><img src="/svg/dropdown/livraison.svg" alt="fiche de livraison"> Modifier ma fiche de livraison</button>
+                <div id="modify-livraison" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                          <h4 class="modal-title">Modal Header</h4>
+                        </div>
+                        <div class="modal-body">
+                          <p>Some text in the modal.</p>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+<div class="pl-5 pr-5">
+  <ul class="nav nav-tabs">
+    <li class="active w-25"><a data-toggle="tab" href="#all">Tous (12)</a></li>
+    <li class="w-25"><a data-toggle="tab" href="#validate">Validée (5)</a></li>
+    <li class="w-25"><a data-toggle="tab" href="#cours">En cours (3)</a></li>
+    <li class="w-25"><a data-toggle="tab" href="#cancel">Annulées (4)</a></li>
+  </ul>
+  <div class="tab-content">
+    <div id="all" class="tab-pane in active">
+      <% for @i in 0..5 %>
+        <%= render 'layouts/contribution/contribution' %>
+      <% end %>
+    </div>
+    <div id="validate" class="tab-pane ">
+      <% for @i in 0..2 %>
+        <%= render 'layouts/contribution/contribution' %>
+      <% end %>
+    </div>
+    </div>
+    <div id="cours" class="tab-pane">
+      <% for @i in 0..1 %>
+        <%= render 'layouts/contribution/contribution' %>
+      <% end %>
+    </div>
+    </div>
+    <div id="cancel" class="tab-pane">
+      <% for @i in 0..8 %>
+        <%= render 'layouts/contribution/contribution' %>
+      <% end %>
+    </div>
+    </div>
+  </div>
+</div>

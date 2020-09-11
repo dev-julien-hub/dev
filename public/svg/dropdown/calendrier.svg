@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="10.583333mm"
+   height="10.583333mm"
+   viewBox="0 0 10.583333 10.583333"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
+   sodipodi:docname="Icone calendrier des activités.svg">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.35"
+     inkscape:cx="-82.857145"
+     inkscape:cy="37.142856"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     showborder="false"
+     inkscape:window-width="1280"
+     inkscape:window-height="898"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-127.75595,-148.07738)">
+    <g
+       id="g1502"
+       transform="matrix(0.5333333,0,0,0.5333333,47.599062,97.617251)">
+      <path
+         id="path434"
+         d="m 168.5354,96.736905 h -0.77919 v -0.702812 c 0,-0.784355 -0.71432,-1.421343 -1.5927,-1.421343 -0.87745,0 -1.5908,0.63785 -1.5908,1.421343 v 0.702812 h -8.71428 v -0.702812 c 0,-0.784355 -0.71435,-1.421343 -1.5908,-1.421343 -0.87938,0 -1.59076,0.63785 -1.59076,1.421343 v 0.702812 h -0.7998 c -0.87151,0.0066 -1.58289,0.643122 -1.58289,1.4231 v 3.186665 4.24476 4.25269 4.25265 c 0,0.1983 0.18271,0.35973 0.40285,0.35973 h 4.76345 4.76345 4.75164 4.76148 c 0.22096,0 0.40088,-0.16149 0.40088,-0.35973 v -4.25265 -4.25269 -4.24476 -3.186665 c -0.002,-0.779115 -0.71134,-1.416965 -1.60253,-1.4231 z m -8.71629,4.969495 v 3.5262 h -3.95678 v -3.5262 z m 4.7536,0 v 3.5262 h -3.94987 v -3.5262 z m 4.75955,0 v 3.5262 h -3.95481 v -3.5262 z m -14.2756,3.5253 h -3.95678 v -3.5262 h 3.95678 z m -3.95778,0.71946 h 3.95678 v 3.53323 h -3.95678 z m 4.76345,0 h 3.95678 v 3.53323 h -3.95678 z m 4.76148,0 h 3.94991 v 3.53323 h -3.94991 z m 4.75364,0 h 3.95481 v 3.53323 h -3.95481 z m 0,-9.917067 c 0,-0.387784 0.3528,-0.701884 0.78703,-0.701884 0.43431,0 0.78506,0.314034 0.78506,0.701884 v 1.062508 1.063404 c 0,0.387817 -0.35057,0.702779 -0.78506,0.702779 -0.43431,0 -0.78703,-0.315029 -0.78703,-0.702779 v -1.063404 z m -11.89684,0 c 0,-0.387784 0.35093,-0.701884 0.78702,-0.701884 0.43334,0 0.7851,0.314034 0.7851,0.701884 v 1.062508 1.063404 c 0,0.387817 -0.35094,0.702779 -0.7851,0.702779 -0.43527,0 -0.78702,-0.315029 -0.78702,-0.702779 v -1.063404 z m -2.38173,2.125912 c 0,-0.385164 0.35094,-0.701021 0.79687,-0.703674 h 0.78112 v 0.703674 c 0,0.784388 0.71238,1.421343 1.59076,1.421343 0.87745,0 1.5908,-0.636955 1.5908,-1.421343 v -0.703674 h 8.71428 v 0.703674 c 0,0.784388 0.71435,1.421343 1.5908,1.421343 0.87939,0 1.5927,-0.636955 1.5927,-1.421343 v -0.703674 h 0.79293 c 0.43137,0.0027 0.78312,0.318344 0.78312,0.703674 v 2.826935 h -4.29479 -0.0628 -0.0598 -4.62883 -0.0628 -0.0609 -4.70154 -4.3606 v -2.826935 z m 0,12.043805 h 3.95678 v 3.53323 h -3.95678 z m 4.76345,0 h 3.95678 v 3.53323 h -3.95678 z m 4.76148,0 h 3.94991 v 3.53323 h -3.94991 z m 8.70845,3.53323 h -3.95481 v -3.53323 h 3.95481 z"
+         style="fill:#b39361;stroke-width:0.92848265"
+         inkscape:connector-curvature="0" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path1494"
+         d="m 165.10188,101.17723 v 4.24476 h -4.76345 v -4.24476 z"
+         style="fill:#b39361;stroke-width:1.11870682" />
+    </g>
+  </g>
+</svg>

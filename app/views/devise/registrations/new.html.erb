@@ -1,0 +1,150 @@
+<div class="container">
+  <div class="flex w-100 justify-content-center align-items-center flex-md-grow-1 bg-white">
+    <div class="_WccDer p-4 box-shadow-new-session pt-2 font-size-14">
+      <div class="text-center">
+          <h3 class="font-weight-bold">S' inscrire</h3>
+          <p>
+            Vous en avez déjà un compte?  <a href="/users/sign_in" class="text-decoration-none">se connecter</a>
+          </p>
+      </div>
+        <div class="pt-3 mb-2">
+          <h5 class="text-change">Nouveau compte</h5>
+        </div>
+        <%= form_for(resource, as: resource_name, class:"w-75" , url: registration_path(resource_name)) do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
+
+          <div class="check-email-first">
+            <div class="field">
+              <%= f.label :email %><br />
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'mb-2 box-none form-control border-color danger-border-add', id:"email-value" %>
+              <div class="w-100 border-danger bg-danger _XccERn value-error p-2 text-white text-center content-xl-md"></div>
+            </div>
+            <div>
+              <div id='Ckeck-email' class="mt-3 form-control box-none border-color bg-color text-white text-center pointer"> Check</div>
+            </div>
+          </div>
+          <div class="_XccERn user-require">
+            <div class="field">
+              <%= f.label :Prénom %> <span class="text-darken-spec">( * )</span><br />
+              <%= f.text_field :first, class: 'mb-2 box-none form-control border-color',id:"first" %>
+            </div>
+            <div class="field">
+              <%= f.label :Nom %> <span class="text-darken-spec">( * )</span><br />
+              <%= f.text_field :last, class: 'mb-2 box-none form-control border-color', id:"last" %>
+            </div>
+            <div class="flex">
+              <div class="field mr-1">
+                <%= f.label :Pseudo %> <span class="text-darken-spec">( * )</span><br />
+                <%= f.text_field :pseudo, class: 'mb-2 box-none form-control border-color', id:"pseudo" %>
+              </div>
+              <div class="field">
+                <%= f.label :mobile %><br />
+                <%= f.text_field :mobile, class: 'mb-2 box-none form-control border-color' %>
+              </div>
+            </div>
+            <div class="mt-2 mb-2">
+              Origine
+            </div>
+            <div class="flex justify-content-center align-items-center">
+              <div class="field pr-1">
+                <%= f.text_field :country, placeholder:"Country ..." , class: 'mb-2 box-none form-control border-color' %>
+              </div>
+              <div class="field pr-1">
+                <%= f.text_field :region, placeholder:"Region ...", class: 'mb-2 box-none form-control border-color' %>
+              </div>
+              <div class="field">
+                <%= f.text_field :address, placeholder:"Adresse ...", class: 'mb-2 box-none form-control border-color' %>
+              </div>
+            </div>
+            <p>
+              ( * ) : obligatoire
+            </p>
+            <div class="flex w-100 align-items-center justify-content-end">
+              <div class="w-30 mt-3 text-center font-weight-lighter pointer  form-control box-none border-color bg-color text-white-important" id="apros-suiv">
+                Suivant
+              </div>
+            </div>
+          </div>
+          <div class="school-require _XccERn">
+            <div class="field">
+              <%= f.label :Université %><br/>
+              <%= f.text_field :university, class: 'mb-2 box-none form-control border-color' %>
+            </div>
+            <div class="field">
+              <%= f.label :Diplome %><br />
+              <%= f.text_field :diplome, class: 'mb-2 box-none form-control border-color' %>
+            </div>
+            <div class="field">
+              <%= f.label :"Année d'étude" %><br />
+              <%= f.text_field :school_year, class: 'mb-2 box-none form-control border-color' %>
+            </div>
+            <div class="flex w-100 align-items-center justify-content-end">
+              <div class="w-30 mt-3 text-center font-weight-lighter pointer  form-control box-none border-color bg-color text-white-important" id="univ-suiv">
+                Suivant
+              </div>
+            </div>
+          </div>
+          <div class="password-require _XccERn">
+            <div class="field">
+              <%= f.label :Mot_de_passe %>
+                <% if @minimum_password_length %>
+                  <em>(<%= @minimum_password_length %> caractères minimum)</em>
+                <% end %>
+              <br/>
+              <%= f.password_field :password, autocomplete: "new-password", class: 'mb-2 box-none form-control border-color' %>
+            </div>
+
+            <div class="field">
+              <%= f.label :Confirmation %><br />
+              <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'mb-2 box-none form-control border-color' %>
+            </div>
+            <div class="actions">
+              <%= f.submit "Enregistrer", class:"mt-3 form-control box-none border-color bg-color text-white" %>
+            </div>
+          </div>
+        <% end %>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript" charset="utf-8">
+  $('#resp-indent').hide();$('.nav-bars-left').hide();
+  $(document).ready(function(){
+      $('#Ckeck-email').click(function(){
+          const mail = $('#email-value').val();
+          if (mail == ''){
+              $('.danger-border-add').addClass('border-danger');
+          }
+          else{
+              $.ajax({url:"/application/check_email_if_exist", method:"POST", data:{email: mail},
+                success:function(data){
+                  if (data['status'] == 'true' && data['email'] != ''){
+                      $('.value-error').text(data['email'] +' est déjà pris par une autre utilisateur');$('.value-error').show();
+                  }
+                  else{
+                      $('.check-email-first').hide(200);$('.user-require').show(200);$('.text-change').text('Apropos de vous');
+                  }
+                }
+              });
+          }
+      });
+      $('#apros-suiv').click(function(){
+          const first = $('#first');const last = $('#last');const pseudo = $('#pseudo');
+          if (first.val() && last.val() && pseudo.val()){
+              $('.user-require').hide(200);$('.school-require').show(200);
+              $('.text-change').text('Apropos de vos études');
+
+          }else{
+              if(first.val()==''){first.addClass('border-danger');}
+              if (last.val()==''){last.addClass('border-danger');}
+              if (pseudo.val()==''){pseudo.addClass('border-danger');}
+          }
+      });
+      $('#univ-suiv').click(function (){
+          $('.school-require').hide(200);$('.password-require').show(200);
+          $('.text-change').text('Sécurisé');
+      });
+  });
+</script>
+
+<%= render "devise/shared/links" %>

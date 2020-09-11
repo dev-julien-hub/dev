@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="flex w-100 justify-content-center align-items-center flex-md-grow-1 bg-white">
+    <div class="_WccDer p-4 box-shadow-new-session pt-2 font-size-14">
+      <div class="text-center">
+        <h3 class="text-color-marron font-weight-bold">Se connecter</h3>
+        <p>
+          Pas encore de compte sur valintanana?
+          <a href="/users/sign_up" class="text-decoration-none">
+            <div class="">
+              S' inscrire
+            </div>
+          </a>
+        </p>
+      </div>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="field">
+          <%= f.label :email, class:"font-weight-bold" %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control box-none mb-2 border-color" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :password, class:"font-weight-bold" %><br />
+          <%= f.password_field :password, autocomplete: "current-password", class:"form-control box-none border-color" %>
+        </div>
+        <div class="m-3">
+          <% if devise_mapping.rememberable? %>
+            <div class="field">
+              <%= f.check_box :remember_me %>
+              <%= f.label :remember_me %>
+            </div>
+          <% end %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "Se connecter",class:"form-control box-none border-color bg-color text-white" %>
+        </div>
+      <% end %>
+      <div class="w-100 text-capitalize ml-2 font-italic mt-3 pointer aides-hides">
+          Aides ?
+      </div>
+      <div class="text-dark font-weight-bold aides-show">
+        <a href="/users/password/new" class="nav-link">Mot de passe Oublié ?</a>
+        <a href="#" class="nav-link">Contact Admin</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function(){
+      $('.aides-hides').click(function(){
+          $('.aides-show').toggle(200);
+      });
+      $('#resp-indent').hide();
+      $('.nav-bars-left').hide();
+  });
+</script>
+

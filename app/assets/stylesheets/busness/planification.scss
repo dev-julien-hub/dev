@@ -1,0 +1,121 @@
+// Place all the styles related to the busness/planification controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+#bonsplan{
+    margin: 0 2px 0 2px;
+}
+.grid{
+display: grid;
+}
+.bonplan{
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: minmax(50px,auto);
+    grid-gap: 2px;
+}
+@media all and(min-width: 200px) and(max-width: 641px){
+    .bonplan{grid-template-columns: repeat(3, 1fr);}
+}
+.nav-rigth{
+    grid-column:4/5;
+    grid-row: 2/5;
+}
+.grid-title{
+    grid-column:1/5;
+}
+@media all and(min-width: 200px) and(max-width: 641px){
+   .grid-title{grid-column: 1/4 !important;}
+}
+.bnp-input{
+    grid-column:1/4;
+}
+.today, .week, .tomorrow, .month{
+    grid-column:1/4;
+}
+.flex{
+display:flex;
+}
+#input-submit{
+    align-self: start;
+}
+.w-30{
+    width:30%;
+}
+.select-option{
+    border: 1px solid brown;
+    height: 30px;
+    border-radius: 2px;
+}
+$min-mat:  24% !important;
+.min-and-max{width:$min-mat;min-width:$min-mat;max-width:$min-mat;}
+.today{
+    grid-template-rows: 10px 1fr
+}
+@media all and(min-width: 200px) and (max-width: 641px){
+    .today, .tomorrow, .week, .month{grid-column: 1/4;}
+    ._CtDt{flex-direction: column !important;}
+    .card-body{padding:1px !important;}
+}
+.min-and-max{width:200px;min-width:200px;max-width:200px;}
+.h{
+    height:18em;
+}
+.color-blue{
+    color: RGB(85, 153, 255) !important;
+}
+.border-rbg{
+    border-color:RGB(179,147,97);
+}
+.shadow-box{
+        box-shadow: 0.6px 0px 0.2px 0.7px #ccc;
+}
+.right{
+    right:0 !important;
+}
+.bpn{
+    background-color:red;
+}
+.top-2{
+    top:2%;
+}
+.radius-3{
+    border-radius:3px;
+}
+.bg-hide-color{
+    background-color: #06060614;
+}
+.w-circle-height{
+    width: 70px !important;
+    height: 70px;
+    border-radius: 50%;
+    padding: 2px;
+    background: red;
+    font-size: 14px;
+    /* text-align: center; */
+    /* text-align-last: center; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+}
+@media all and(min-width: 200px) and(max-width: 641px){
+    .nav-rigth{display: none !important;}
+}
+.details-plan{
+    grid-template-column: repeat(3,1fr);
+    grid-auto-rows:10% 60% minmax(100px, auto);
+    grid-gap: 5px;
+}
+#slide-details-bon-plan{
+    grid-column:1/3;
+}
+.title-evenment, .description-details-bons-plan{
+    grid-column: 1/4;
+}
+@media all and(min-width: 200px) and(max-width: 641px){
+    .categ-desp-m{grid-column:1/4; width: 100%;}
+    .ecxDeR{display: flex;flex-wrap: wrap; width:100%;}
+    .details-plan{grid-auto-rows:5% 25% minmax(20%,auto) minmax(100px, auto);}
+    #slide-details-bon-plan{grid-column:1/4 !important;}
+}

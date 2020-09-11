@@ -1,0 +1,72 @@
+    <section id="project-all" class="about-all-project">
+        <div class="contain-btn p-2 mt-4">
+            <div class="flex align-items-center h-75 w-75  align-content-end" id="btn-exce">
+                <div class="w-25 p-2">
+                    <label for="categ" class="font-weight-bold color-blue">
+                      <h4>Categorie</h4>
+                    </label><br>
+                    <select id="categorie" name="categories" class="form-contorl fxCCerB w-100 _height_maximum_submit btn-outline-none">
+                      <option value="" class="pt-2 pb-2">Toutes</option>
+                      <% for categorie in @categorie %>
+                        <option value="<%= categorie.name %>" class="pointer" ><%= categorie.name %></option>
+                      <% end %>
+                    </select>
+                </div>
+                <div class="w-25 p-2">
+                    <label for="odd" class="font-weight-bold color-blue">
+                      <h4>ODD</h4>
+                    </label> <br>
+                    <select id ="odd" name="categories" class="form-contorl fxCCerB w-100 _height_maximum_submit btn-outline-none">
+                      <option value="">Toutes</option>
+                      <% for odd in @odd %>
+                        <option value="<%= odd.name %>"><%= odd.name %></option>
+                      <% end %>
+                    </select>
+                </div>
+                <div class="w-25 p-2">
+                    <label for="status" class="font-weight-bold color-blue">
+                      <h4>Status du project</h4>
+                    </label> <br>
+                    <select id ="status" name="categories" id="status" class="fxCCerB form-contorl w-100 _height_maximum_submit btn-outline-none">
+                        <option value="">Toutes</option>
+                        <option value="cours">Projet en cours</option>
+                        <option value="finish">Project finis</option>
+                    </select>
+                </div>
+                <div class="w-25 p-2">
+                    <label for="lieu" class="font-weight-bold color-blue"><h4>Lieu d'éxécution</h4></label> <br>
+                    <select id ="region" class="fxCCerB form-contorl w-100 _height_maximum_submit btn-outline-none">
+                      <option value="">Toutes</option>
+                      <% for region in @region %>
+                        <option value="<%= region.name %>"><%= region.name %></option>
+                      <% end %>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="number-of-project ml-4">
+            <h2>
+                <small>Nombre de projets :</small> <%= @count_project %>
+            </h2>
+        </div>
+        <div class="border all-PrUCxxE m-2 flex justify-content-start flex-wrap">
+          <% for @i in @all %>
+            <%= render 'layouts/project/project' %>
+          <% end %>
+        </div>
+    </section>
+
+    <script type="text/javascript" charset="utf-8">
+      $('.fxCCerB').click(function(){
+          var elem = []
+          elem.push($('#categorie').val());elem.push($('#odd').val());elem.push($('#status').val());elem.push($('#region').val());
+          $.ajax({
+              url:"/dashboard/project/search_all_project",
+              method:"POST",
+              data:{id:elem},
+              success:function(value){
+                  console.log(value)
+              }
+        });
+      })
+    </script>

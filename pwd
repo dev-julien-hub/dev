@@ -1,0 +1,4 @@
+ id | user_id | title | description | slogan | start_crowd | begin_crowd | number_day | is_img_attach | is_video_attach | jeuton | constatation | is_more_equipe | is_finished | is_cours | is_calendar | is_validate_admin | is_public | is_validate | is_has_valifunder | financement | created_at | updated_at 
+----+---------+-------+-------------+--------+-------------+-------------+------------+---------------+-----------------+--------+--------------+----------------+-------------+----------+-------------+-------------------+-----------+-------------+-------------------+-------------+------------+------------
+(0 ligne)
+

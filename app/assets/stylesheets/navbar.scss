@@ -1,0 +1,147 @@
+nav .z-index{
+  z-index:1022;
+}
+.fixed-top{
+  position: fixed !important;
+}
+.w-5{
+  width:5%;
+}
+.w-15{
+  width:15%;
+}
+div .w-min-width{
+  min-width: 50%;
+}
+div .w-max-width{
+  width: auto;
+}
+div .font-size-14{
+  font-size:14px;
+}
+.w-xl-sv{
+  width:131px;
+}
+.bd-sr-sm{
+  border:none;
+}
+.tr-ts{
+  transform: translateX(-34px) !important;
+}
+.bd-sr-sm:active{
+  border:none !important;
+}
+.w-90{
+  width:90%;
+}
+@media only screen and(max-width:992px) {
+  .navbar-header{width:80%;}
+}
+.nav-expand-left-position{
+  right: 10px;
+}
+.nav-expand-left-position_search{
+  right: 50px;
+}
+.heigth-sm-ev{
+  height: 200px;
+}
+.nav-expand-top-position{
+  top:0;
+}
+.nav-hover{
+  color:black;
+}
+@media only screen and (min-width: 200px) and (max-width: 992px){
+  .search_of_max_width{display: none;}
+}
+.w-tp-spec{
+  top:60px;
+}
+@media only screen and(max-width: 992px){
+  .item-md-column{
+    flex-direction: column !important;
+    padding:0 10px 0 20px;
+  }
+  .item-md-fixed{
+    position:fixed;
+    width:100% !important;
+    padding: 0 50px 0 50px;
+  }
+  .w-xl-sv{width:100%;}
+  .nav-hover:hover{background: #8080802e;color:black;}
+}
+#topnav{
+  box-shadow: 4px 1px 0px 0.2px gray;
+}
+.box-none:focus{
+  box-shadow: none;
+}
+.w-45{
+  width:45%;
+}
+@media only screen and(min-width: 992px){
+  #expand-serch-bar{
+    display: none !important;
+  }
+}
+.f_DdGe{
+  border-radius: 4px;
+}
+.btn-outline-none:focus{
+  outline: none !important;
+}
+.context-shadow{
+   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+.extract-to-tep{
+  transform: translate(-150px, 0px);
+  width: 270px !important;
+  height: 350px;
+}
+.extract-connection{
+  transform: translate(-130px, 0px);
+  width: 230px !important;
+  height: 150px;
+}
+.bg-hover-grey:hover{
+  background-color: #80808012 !important;
+}
+.w-8{
+  width:8%;
+}
+._xYeiUV{
+  transform: translate(-20px, -14px);
+}
+._UvGCi{
+  width:20px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.w-17{
+  width:17%;
+}
+
+/* #nav-all-project[href = "#tous"]{
+  color: white !important;
+  background-color:rgb(179,147,97);
+  border-radius: 5px;
+}
+#bons-plan[href = "#ret"]{
+  color: white !important;
+  background-color:rgb(179,147,97);
+  border-radius: 5px;
+}
+
+ */
+.icone-vim{
+  width:7em;
+}
+.img-call-img{
+  transform: scaleY(2.8) scaleX(1.3);
+  border-radius: 50%;
+}
+.font{
+  margin: 2px !important;
+}

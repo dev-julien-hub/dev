@@ -1,0 +1,502 @@
+<%= form_with(model: @editable, url: dashboard_my_project_path(@modify.id), method: "patch") do |f|%>
+
+<div class="mt-5 w-100">
+    <div class="p-5 text-center">
+        <h1 class="text-secondary">Présentation de la collect</h1>
+    </div>
+</div>
+<section id="collect" class="bg-confict">
+    <div class="p-2">
+        <div class="flex w-100 flex-wrap justify-content-start">
+            <div class="w-25 pr-5 pl-5">
+                <div>
+                    <div class="pb-2 col-specific font-weight-bold">
+                        Titre du projet
+                    </div>
+                    <%= f.text_field :title, class:"form-control border-specify fz-small",placeholder:"Titre du projet ...", value: @modify.title  %>
+                </div>
+                <div>
+                    <div class="pb-2 pt-4 col-specific font-weight-bold">
+                        Slogan du projet
+                    </div>
+                    <%= f.text_field :slogan, class:"form-control border-specify fz-small",placeholder:"Slogan du projet ...", value: @modify.slogan  %>
+                </div>
+            </div>
+            <div class="w-25 pr-5 pl-5">
+                <div>
+                    <div class="pb-2 col-specific font-weight-bold">
+                        Categorie du  projet
+                    </div>
+                    <%
+                      k = []
+                      for i in @categorie
+                        k.append([i.name, i.id])
+                      end
+                    %>
+                    <%= select_tag(:categorie, options_for_select(k , @modify.admin_about_categorie.id), class: "form-control border-specify fz-small")%>
+                </div>
+                <div>
+                    <div class="pb-2 pt-4 col-specific font-weight-bold">
+                        ODD du projet
+                    </div>
+                    <%
+                      j = []
+                      for i in @odd
+                        j.append([i.name, i.id])
+                      end
+                    %>
+                    <%= select_tag(:odd, options_for_select(j , @modify.admin_about_odd.id), class: "form-control border-specify fz-small")%>
+                </div>
+            </div>
+            <div class="w-25 pr-5 pl-5">
+                <div>
+                    <div class="pb-2 col-specific font-weight-bold">
+                        Montant de la collect
+                    </div>
+                    <%= f.number_field :montant, class:"form-control border-specify fz-small",placeholder:"Montant de la collect", value: @modify.jeuton  %>
+                </div>
+                <div>
+                    <div class="pb-2 pt-4 col-specific font-weight-bold font-smaller">
+                        Durée de la collect (jours)
+                    </div>
+                    <%= f.number_field :day, class:"form-control border-specify fz-small",placeholder:"maximun 60 jours", value: @modify.number_day  %>
+                </div>
+            </div>
+            <div class="w-25 p-2 bg-white h-auto text-center">
+                <img src="/svg/dropdown/cadenas.svg" alt="private">
+                <div class="mt-2 text-center w-100 col-specific p-4">
+                     Ces informations ne peuvent plus être modifiées une fois la compagne lancée
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id='video' class='mt-5 mb-5'>
+    <div class="container w-100 flex justify-content-center align-items-center">
+        <div class="w-25 h-20-fix ml-5 border-spc-fix">
+            <div class="w-100 w-img bg-darken-2">
+              <% if @modify.project_video.attached? %>
+                <%= image_tag @modify.project_video, class:"w-100 h-mic upload-files", id:"uploadPreviewVideo" %>
+              <% else %>
+                <img src="/directory/user.jpeg" class="w-100 h-mic" id = "uploadPreviewVideo"  alt="">
+              <% end %>
+            </div>
+            <div class="text-center p-2 bg-spy">
+                <label class="pointer">
+                  <img src="/svg/dropdown/img.svg" alt="video">
+                  <span style="display:none;" onchange="Previewvideo();">
+                    <%= f.file_field :project_video, id:"uploadvideo"%>
+                  </span>
+                </label>
+            </div>
+        </div>
+        <div class="w-25 h-20-fix ml-5 border-spc-fix overflow-hidden">
+          <div class="w-100 w-img bg-darken-2" >
+            <% if @modify.project_img.attached? %>
+              <%= image_tag @modify.project_img, class:"w-100 h-mic upload-files", id:"uploadPreview" %>
+            <% else %>
+                <img src="/directory/user.jpeg" class="w-100 h-micupload-files" id ="uploadPreview" alt="">
+            <% end %>
+            </div>
+            <div class="text-center p-2 bg-spy">
+              <label class="pointer">
+                <img src="/svg/dropdown/img.svg" alt="image">
+                <span style="display:none;" onchange="PreviewImage('uploadImage','uploadPreview');" >
+                  <%= f.file_field :project_img, id:"uploadImage"%>
+                </span>
+              </label>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="details-compte">
+    <div class="flex w-100 justify-content-center text-center align-items-center flex-nowrap flex-column">
+        <div class="w-50">
+            <h1 class="p-4 text-capitalize text-secondary">
+                Details du projet
+            </h1>
+        </div>
+        <div class="w-75">
+            <p>
+                Donner plus de détails sur votre projet, raconter votre histoire, défender votre cause et surtout montrer votre sérieux
+                à la communauté Valintanana afin qu'il puisse vous faire confiance et vous soutenir dans votre collecte.
+                <br>
+                Faite en sorte que les titres  de chaque partie soient accrocheurs pour inciter les internautes à en savoir plus <br>
+                Vous pouvez illustrer vos propos par des images et des graphiques
+            </p>
+        </div>
+    </div>
+    <div class="p-1 text-center">
+        <div class="mt-2 mb-2">
+            <div class="w-100 p-4 bg_color">
+                <h4 class="cl-va"> <img src="/svg/dropdown/ide.svg" alt="ide.svg" class="mr-4"> L' idée</h4>
+            </div>
+            <div class="p-3 mt-2">
+                Présentez en quoi consiste votre projet, le concepte, votre objectif (SMART) et le problème que vous voulez resoudre
+            </div>
+            <div class="_idee">
+                <%= f.text_field :idea_title, value: @modify.idea.title, class:"w-75 mb-2 mt-2 bd_va half" %>
+                <%= f.text_area :explication_idea, size: "30x10", id:"_idee", class:"w-75 bd_va p-3", value: @modify.idea.explication %>
+            </div>
+        </div>
+
+        <div class="mb-2 mt-2">
+            <div class="w-100 text-center p-4 bg_color">
+                <h4 class="cl-va"> <img src="/svg/dropdown/contat.svg" alt="constat.svg" class="mr-4"> Constats</h4>
+            </div>
+            <div class="p-3 mt-2">
+                Eposez le context, les faits,les chiffres et les statistiques du problème auxquels repond votre projet.
+                Soyez logique et cohérent dans votre argumentation
+            </div>
+            <div class="_constat">
+                <input type="text" class="w-75 mb-2 mt-2 bd_va half">
+                <textarea name="_const" id="_idee" cols="30" rows="10" class="w-75 bd_va p-3"></textarea>
+            </div>
+        </div>
+
+        <div class="mb-2 mt-2">
+            <div class="w-100 text-center p-4 bg_color">
+                <h4 class="cl-va"> <img src="/svg/dropdown/projets.svg" alt="projets.svg" class="mr-4"> Solution</h4>
+            </div>
+            <div class="p-3mt-2">
+                Promouvez votre solution en mettant en exergue l'approche pour résoudre le problème identifié et son aspect innovant
+            </div>
+            <div class="_sol">
+                <%= f.text_field :solution_title, value: @modify.solution.title, class:"w-75 mb-2 mt-2 bd_va half" %>
+                <%= f.text_area :explication_solution, size: "30x10", id:"_solution", class:"w-75 bd_va p-3", value: @modify.solution.explication %>
+            </div>
+        </div>
+
+        <div class="mb-2 mt-2">
+            <div class="w-100 text-center p-4 bg_color">
+                <h4 class="cl-va"> <img src="/svg/dropdown/positif.svg" alt="positif.svg" class="mr-4"> Impact positifs</h4>
+            </div>
+            <div class="mt-2 p-3">
+                Listez les impacts qu'aura votre projet et dites quels seront les communautés bénéficiaires. <br>
+                Il est important  aussi de dire comment votre projet s'aligne-t-elle avec les ODD
+            </div>
+            <div class="_positif">
+                <%= f.text_field :advantage_title, value: @modify.advantage.title, class:"w-75 mb-2 mt-2 bd_va half" %>
+                <%= f.text_area :explication_advantage, size: "30x10", id:"_positif", class:"w-75 bd_va p-3", value: @modify.advantage.description %>
+            </div>
+        </div>
+
+        <div class="mt-2 mb-2">
+            <div class="w-100 text-center p-4 bg_color">
+                <h4 class="cl-va"> <img src="/svg/dropdown/equipe.svg" alt="equipe.svg" class="mr-4"> L' équipes</h4>
+            </div>
+            <div class="p-3 mt-2">
+                Prouvez que votre équipe est qualifiée pour mener à bien ce projet
+            </div>
+            <div class="_equipe">
+                <input type="text" class="w-75 mb-2 mt-2 bd_va half">
+                <textarea name="_idee" id="_equipe" cols="30" rows="10" class="w-75 bd_va p-3"></textarea>
+            </div>
+        </div>
+
+        <div class="mt-2 mb-2">
+            <div class="w-100 text-center p-4 bg_color">
+                <h4 class="cl-va"> <img src="/svg/dropdown/financement.svg" alt="financement.svg" class="mr-4"> A quoi va servire le financement</h4>
+            </div>
+            <div class="p-3 mt-2">
+                Il est ici question de détailler la repartition des fonds à recevoir et d'en justifier l'utilisation par rapport à votre projet.
+            </div>
+            <div class="_serv">
+                <input type="text" class="w-75 mb-2 mt-2 bd_va half">
+                <textarea name="_idee" id="_serveri" cols="30" rows="10" class="w-75 bd_va p-3"></textarea>
+            </div>
+        </div>
+
+        <div class="mt-2 mb-2">
+            <div class="w-100 text-center p-4 bg_color">
+                <h4 class="cl-va"> <img src="/svg/dropdown/calendrier.svg" alt="calendrier.svg" class="mr-4"> Calendrier des activités</h4>
+            </div>
+            <div class="p-3 mt-2">
+                Racontez ce qui a déjà été acompli et presenter vos prochains jalons notament par rapport à votre collect de fonds.
+            </div>
+            <div class="_calendrier">
+                <input type="text" class="w-75 mb-2 mt-2 bd_va half">
+                <textarea name="_idee" id="_calen" cols="30" rows="10" class="w-75 bd_va p-3"></textarea>
+            </div>
+        </div>
+
+        <div>
+            <div class="w-100 text-center p-4 bg_color">
+                <h4 class="cl-va"> <img src="/svg/dropdown/diapo.svg" alt="diapo.svg" class="mr-4"> Diaporama</h4>
+            </div>
+            <div class="p-3 mt-2">
+                Ajoutez ici les images permettant aux valifunders de s'immerger dans votre projet.
+            </div>
+            <div class="_diaporama mt-3">
+                <div class="bd_va flex justify-content-center p-4 flex-wrap">
+                  <div class="w-25 h-20-fix ml-5 mb-2 border-spc-fix">
+                    <div class="w-100 w-img bg-darken-2" >
+                      <% if @modify.diapo3.attached? %>
+                        <%= image_tag @modify.diapo3, class:"w-100 h-mic", id:"uploadPreviewdiaporama3" %>
+                      <% else %>
+                        <img src="" alt="" id="uploadPreviewdiaporama3" class="w-100 h-mic">
+                      <% end %>
+                    </div>
+                    <div class="text-center p-2 bg-spy">
+                        <label class="pointer">
+                          <img src="/svg/dropdown/img.svg" alt="image">
+                          <span style="display:none;" onchange="PreviewImage('uploadImagediaporama3','uploadPreviewdiaporama3');" >
+                            <%= f.file_field :diapo3, id:"uploadImagediaporama3"%>
+                          </span>
+                        </label>
+                      </div>
+                  </div>
+                  <div class="w-25 h-20-fix ml-5 mb-2 border-spc-fix">
+                    <div class="w-100 w-img bg-darken-2" >
+                      <% if @modify.diapo1.attached? %>
+                        <%= image_tag @modify.diapo1, class:"w-100 h-mic", id:"uploadPreviewdiaporama1" %>
+                      <% else %>
+                        <img src="" alt="" id="uploadPreviewdiaporama1" class="w-100 h-mic">
+                      <% end %>
+                    </div>
+                    <div class="text-center p-2 bg-spy">
+                        <label class="pointer">
+                          <img src="/svg/dropdown/img.svg" alt="image">
+                          <span style="display:none;" onchange="PreviewImage('uploadImagediaporama1','uploadPreviewdiaporama1');" >
+                            <%= f.file_field :diapo1, id:"uploadImagediaporama1"%>
+                          </span>
+                        </label>
+                      </div>
+                  </div>
+                  <div class="w-25 h-20-fix ml-5 mb-2 border-spc-fix">
+                    <div class="w-100 w-img bg-darken-2" >
+                      <% if @modify.diapo2.attached? %>
+                        <%= image_tag @modify.diapo2, class:"w-100 h-mic", id:"uploadPreviewdiaporama2" %>
+                      <% else %>
+                        <img src="" alt="" id="uploadPreviewdiaporama2" class="w-100 h-mic">
+                      <% end %>
+                    </div>
+                    <div class="text-center p-2 bg-spy">
+                        <label class="pointer">
+                          <img src="/svg/dropdown/img.svg" alt="image">
+                          <span style="display:none;" onchange="PreviewImage('uploadImagediaporama2','uploadPreviewdiaporama2');" >
+                            <%= f.file_field :diapo2, id:"uploadImagediaporama2"%>
+                          </span>
+                        </label>
+                      </div>
+                  </div>
+                  <div class="w-25 h-20-fix ml-5 mb-2 border-spc-fix">
+                    <div class="w-100 w-img bg-darken-2" >
+                      <% if @modify.diapo4.attached? %>
+                        <%= image_tag @modify.diapo4, class:"w-100 h-mic", id:"uploadPreviewdiaporama4" %>
+                      <% else %>
+                        <img src="" alt="" id="uploadPreviewdiaporama4" class="w-100 h-mic">
+                      <% end %>
+                    </div>
+                    <div class="text-center p-2 bg-spy">
+                        <label class="pointer">
+                          <img src="/svg/dropdown/img.svg" alt="image">
+                          <span style="display:none;" onchange="PreviewImage('uploadImagediaporama4','uploadPreviewdiaporama4');" >
+                            <%= f.file_field :diapo4, id:"uploadImagediaporama4"%>
+                          </span>
+                        </label>
+                      </div>
+                  </div>
+                  <div class="w-25 h-20-fix ml-5 mb-2 border-spc-fix">
+                    <div class="w-100 w-img bg-darken-2" >
+                      <% if @modify.diapo5.attached? %>
+                        <%= image_tag @modify.diapo5, class:"w-100 h-mic", id:"uploadPreviewdiaporama5" %>
+                      <% else %>
+                        <img src="" alt="" id="uploadPreviewdiaporama5" class="w-100 h-mic">
+                      <% end %>
+                    </div>
+                    <div class="text-center p-2 bg-spy">
+                        <label class="pointer">
+                          <img src="/svg/dropdown/img.svg" alt="image">
+                          <span style="display:none;" onchange="PreviewImage('uploadImagediaporama5','uploadPreviewdiaporama5');" >
+                            <%= f.file_field :diapo5, id:"uploadImagediaporama5"%>
+                          </span>
+                        </label>
+                      </div>
+                  </div>
+                  <div class="w-25 h-20-fix ml-5 mb-2 border-spc-fix">
+                    <div class="w-100 w-img bg-darken-2" >
+                      <% if @modify.diapo6.attached? %>
+                        <%= image_tag @modify.diapo6, class:"w-100 h-mic", id:"uploadPreviewdiaporama5" %>
+                      <% else %>
+                        <img src="" alt="" id="uploadPreviewdiaporama6" class="w-100 h-mic">
+                      <% end %>
+                    </div>
+                    <div class="text-center p-2 bg-spy">
+                        <label class="pointer">
+                          <img src="/svg/dropdown/img.svg" alt="image">
+                          <span style="display:none;" onchange="PreviewImage('uploadImagediaporama6','uploadPreviewdiaporama6');" >
+                            <%= f.file_field :diapo6, id:"uploadImagediaporama6"%>
+                          </span>
+                        </label>
+                      </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="contrepartie">
+    <div class="w-100 mt-4 text-center">
+        <h1 class="p-4 text-capitalize text-secondary">
+            Contrepartie (fankasitrahana)
+        </h1>
+        <div class="flex p-2">
+            <div class="_nb-partie w-25 cl-va align-self-end pb-5">
+                <div>
+                    Vos contrparties <span class="bd_va p-2 ml-4"> 55 </span>
+                </div>
+            </div>
+            <div class="w-50 flex flex-column align-items-center justify-content-between">
+                <div>
+                    Proposer des contrepartie authentiques et en rapport avec le projet <br>
+                    Considérez les éventuelles livraisons pour les couts de contreparties
+                </div>
+                <div>
+                    <img src="/svg/dropdown/b_contrepartie.svg" alt="bouton.svg" class="pointer" id="add-contrepartie"
+                          data-toggle="modal" data-target="#contrepartie-modale"
+                    >
+                </div>
+            </div>
+            <div class="w-25 cl-va">
+                <br><br>
+                <img src="/svg/dropdown/cadenas.svg" alt="gadenas.svg" class="mb-2">
+                <br>
+                Les contreparties ne peuvent plus être modifiée une fois la compagne lancée.
+                <br><br>
+                Vous pouvez ajouter de nouvelles contreparties pendant la compagne
+            </div>
+        </div>
+    </div>
+    <div class="flex w-100 height-half mt-5">
+        <div class="w-10 align-self-center">
+            <div class="text-center">
+                <img src="/svg/dropdown/left.svg" alt="arrow-left.svg">
+            </div>
+        </div>
+        <div class="w-75 bg-green flex flex-nowrap justify-content-start align-items-center bg-grae">
+            <div class="w-25 height-don ml-5 border-spc-fix bg-white box">
+                <div class="text-center cl-va">
+                    Faire un don
+                </div>
+                <div class="text-center font-weight-bold p-3">
+                    Je donne ce que je veux et je ne souhaite pas recevoir des contreparties
+                </div>
+                <div class="bg-darken-2 border-darken-3 h-mic-don text-center">
+                    <div class="cl-va pb-1">
+                        Entrer le montant de votre don
+                    </div>
+                    <input type="text" class="w-75 bd_va pl-2 heigth-int">
+                    <div class="cl-va">
+                        Takalo
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="w-10 align-self-center">
+            <div class="text-center">
+                <img src="/svg/dropdown/right.svg" alt="arrow-right.svg">
+            </div>
+        </div>
+
+    </div>
+</section>
+<section class="contact">
+    <div class="w-100 text-center flex flex-column justify-content-center align-items-center">
+        <div>
+            <h1 class="p-4 text-secondary">
+                Contacts du projet
+            </h1>
+        </div>
+        <div class="w-25">
+            <input class="p-2 bd_va w-100 mb-3 text-center" placeholder="Page facebook du projet"/>
+        </div>
+        <div class="w-25">
+            <input class="p-2 bd_va w-100 mb-3 text-center" placeholder="Adress Mail du projet"/>
+        </div>
+    </div>
+</section>
+<section class="end mt-4 mb-4 w-100 flex justify-content-center">
+    <div class="flex align-items-center w-50 justify-content-between">
+        <div class="w-25 p-3">
+          <f></f>
+            <img class="pointer" src="/svg/dropdown/sauvgarder.svg" alt="sauvgarder.svg">
+        </div>
+        <div class="w-25 p-3">
+            <img class="pointer" src="/svg/dropdown/apercu.svg" alt="apercu.svg">
+        </div>
+        <div class="w-25 p-3">
+            <img class="pointer" src="/svg/dropdown/valider.svg" alt="valider.svg">
+        </div>
+
+    </div>
+</section>
+    <%= f.submit 'Save' %>
+<% end %>
+ <%= form_with(url: "/dashboard/contrepartie#create" , method: "post") do |f|%>
+  <div id="contrepartie-modale" class="modal" role="dialog">
+    <section id="contrepartie" class="p-2 m-2 bg-white">
+      <button type="button" class="btn btn-default position-fixed right-5" data-dismiss="modal">X</button>
+        <div class="flex justify-content-center h-auto p-2">
+            <div class="w-50 border contrepartie p-2">
+                <button class="btn btn-primary w-100" disabled>Nouvelle contrepartie</button> <br>
+                <div class="flex align-items-center mt-4 mb-4">
+                    <div class="w-25 text-right">Montant</div>
+                    <div class="w-50 pl-3 pr-3">
+                      <%= f.number_field :jeuton_contrepartie, class:"w-100 form-control" %>
+                    </div>
+                    <div class="w-25">
+                        Takalo
+                    </div>
+                </div>
+                <div class="img-describe flex w-100 h-15-em">
+                    <div class="w-50 p-3 h-15">
+                        <p><span class="font-weight-bold">Image</span></p>
+                            <img src="" class="w-75 h-12-em border overflow-hidden" id ="Contrepartie" alt="">
+                        <label class="pointer">
+                          <img src="/svg/dropdown/img.svg" alt="image">
+                          <span style="display:none;" onchange="PreviewImage('uploadcontrepartie','Contrepartie');" >
+                            <%= f.file_field :contrepartie_img, id:"uploadcontrepartie"%>
+                          </span>
+                        </label>
+                    </div>
+                    <div class="w-50 h-90 m-3">
+                        <p><span class="font-weight-bold">Déscription (10 mots)</span></p>
+                          <%= f.text_area :description10,size:"30x7", class: "p-2"%>
+                        </textarea>
+                    </div>
+                </div>
+                <div class="p-4">
+                    <p class="font-weight-bold">Description (40 mots)</p>
+                  <%= f.text_area :description40, size:"64x7", class: "p-2"%>
+                </div>
+                <div class="p-4 flex justify-content-center">
+                    <div class="w-50 pr-4">
+                      <%= f.check_box :quantity_box, checked: true %> Quantité limitée
+                      <%= f.number_field :quantite,  class: "w-75 form-control btn-outline-none shadow-none"%>
+                    </div>
+                    <div class="w-50">
+                        <%= f.check_box :address_valifunder, checked: true %>
+                        <label for="neccessit" class="pl-4">Néccessite l'addresse du valifunders</label>
+                    </div>
+                </div>
+                <div class="flex w-100 justify-content-center">
+                    <div class="w-50">
+                        <p>
+                          <%= f.check_box :check_val, checked: true %>
+                          Date d'envoie</p>
+                        <%= f.text_field :envoie,  class: "w-100 form-control btn-outline-none shadow-none"%>
+                    </div>
+                </div>
+                <div class="w-100 mt-4 text-center pointer">
+                    <%= f.submit 'Ajouter mes contreparties', class:"btn btn-primary w-75" %>
+                </div>
+            </div>
+        <% end %>
+        </div>
+    </section>
+  </div>
+<script type="text/javascript">
+    function Previewvideo() { var oFReader = new FileReader(); oFReader.readAsDataURL(document.getElementById("uploadvideo").files[0]); oFReader.onload = function (oFREvent) { document.getElementById("uploadPreviewVideo").src = oFREvent.target.result; }; };
+</script>

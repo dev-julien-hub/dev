@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  dashboard/user/project: MyString
+  index: MyString
+  show: MyString
+  edit: MyString
+
+two:
+  dashboard/user/project: MyString
+  index: MyString
+  show: MyString
+  edit: MyString

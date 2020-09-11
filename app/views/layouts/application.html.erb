@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "About Sharks" %></title>
+
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+
+  <body>
+    <main role="main" id="main">
+      <div class="w-100 position-absolute">
+          <% if notice %>
+            <p class="alert alert-success"><%= notice %></p>
+          <% end %>
+          <% if alert %>
+            <p class="alert alert-danger"><%= alert %></p>
+          <% end %>
+          <div class="header">
+            <%= render 'layouts/navbar/nav_bar' %>
+          </div>
+      </div>
+      <%= content_for?(:content) ? yield(:content) : yield %>
+    </main>
+  </body>
+  <script type="text/javascript" charset="utf-8">
+    function PreviewImage(id1, id2)
+    {
+        var oFReader = new FileReader();
+        oFReader.readAsDataURL(document.getElementById(id1).files[0]);
+        oFReader.onload = function (oFREvent) {
+            document.getElementById(id2).src = oFREvent.target.result;
+        };
+    };
+    function Projectscroll(divEvent,isLeft,pixel)
+    {
+        const px = toString(pixel);
+        if(isLeft =='left'){
+            $('#contain-project').animate({ scrollLeft: '-=303px' }, 1000);
+        }
+        else{
+            $('#contain-project').animate({ scrollLeft: '+=303px' }, 1000);
+        }
+
+    };
+    document.getElementsByClassName('like-every-where').addEventListner('click',function(){
+        var i = $(this);
+        alert(i);
+    })
+  </script>
+
+</html>

@@ -1,0 +1,167 @@
+<nav class="navbar navbar-expand-lg navbar-light fixed-top z-index bg-white" id="topnav">
+  <div class="flex justify-content-start align-items-center flex-md-column flex-xl-row flex-grow-1 w-100">
+    <div class="navbar-header w-15 flex align-items-center justify-content-start">
+        <div class="w-15 nav-bars-left"></div>
+        <div class="w-15">
+          <a class="navbar-brand text-center icone-vim" href="/">
+          <%= image_tag('valintanana.png',  class:"h-100 w-100 img-call-img") %>
+        </a>
+        </div>
+        <div class="navbar-toggler nav-expand-left-position_search position-absolute bd-sr-sm" type="button" data-toggle="collapse" data-target="#expand-serch-bar" aria-controls="expand-serch-bar" aria-expanded="false" aria-label="Toggle navigation" id="search">
+          <i class="fa fa-search"></i>
+        </div>
+        <button class="navbar-toggler nav-expand-left-position position-absolute bd-sr-sm" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fa fa-bars"></i>
+        </button>
+    </div>
+    <!-- begin of serch project -->
+    <div class="collapse navbar-collapse fixed-top pl-2 pr-2 bg-white mt-3 heigth-sm-ev hide-xl-width" id="expand-serch-bar">
+      <div class="text-center pb-2">
+        Search project
+        <div class="position-absolute pointer z-index nav-expand-left-position nav-expand-top-position" id="hide-sm-serch-div">
+          <i class="fa fa-close"></i>
+        </div>
+      </div>
+      <form action="/" class="flex">
+        <input type="text" name="search" class="form-control w-90 box-none" placeholder="search project">
+        <button type="submit" class="bd-sr-sm tr-ts box-none"><i class="fa fa-search fa-search-icon-xm"></i></button>
+      </form>
+    </div>
+    <!-- end of serch project small width -->
+
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <div class="flex justify-content-end flex-md-column flex-xl-row flex-grow-1 w-100 p-2" id="resp-indent">
+        <div class="w-min-width w-max-width align-self-start search_of_max_width">
+          <form action="#">
+            <div class="flex">
+              <input type="text" placeholder="Search a project" class="box-none w-90 form-control">
+              <button type="submit" class="bd-sr-sm box-none btn-outline-none tr-ts bg-white font">
+                <i class="fa fa-search f_DdGe"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+        <div class="flex bg-white w-tp-spec w-auto item-md-column item-md-fixed" >
+          <% if !current_user %>
+            <div>
+              <a href="#" class="nav-link font-size-14 nav-hover">
+                Accueil
+              </a>
+            </div>
+          <% end %>
+          <div class="w-xl-sv">
+            <a href="<%= dashboard_project_index_path %>" class="nav-link nav-item font-size-14 nav-hover" id="nav-all-project">
+              Tous les projets
+              <% if current_user %>
+                <span class="badge badge-secondary position-absolute _xYeiUV">49</span>
+              <% end %>
+            </a>
+          </div>
+
+          <% if current_user %>
+            <div>
+              <a href="#" class="nav-link font-size-14 nav-hover">
+                Notification
+                <span class="badge badge-secondary position-absolute _xYeiUV">6</span>
+              </a>
+            </div>
+          <% end %>
+
+          <div>
+            <a href="<%= busness_planification_index_path %>" class="nav-link font-size-14 nav-hover" id="bons-plan">
+              Bons Plans
+              <% if current_user %>
+                <span class="badge badge-secondary position-absolute _xYeiUV">2</span>
+              <% end %>
+            </a>
+          </div>
+
+          <% if current_user %>
+          <div>
+            <a href="<%= payment_redirection_index_path %>" class="nav-link font-size-14 nav-hover mr-5">
+              Takalo
+              <span class="badge badge-secondary position-absolute _xYeiUV">15</span>
+            </a>
+          </div>
+
+          <% end %>
+
+          <div class="dropdown">
+            <% if current_user %>
+
+              <a class="nav-link font-size-14 nav-hover pointer dropdown-toggle border-left" data-toggle="dropdown">
+                Mon compte
+              </a>
+              <ul class="dropdown-menu extract-to-tep font-size-14">
+                <a href="<%= dashboard_user_profil_index_path(current_user.id) %>" class="text-decoration-none">
+                  <div class="p-2 text-dark text-capitalize bg-hover-grey">
+                    <div class="flex">
+                      <div class="w-45">
+                        <img src="/svg/dropdown/profil.svg" class="w-17 mr-2" alt="My profile">
+                        Mon profile
+                      </div>
+                      <div class="w-50 _UvGCi text-uppercase">( <%= current_user.first %> <%= current_user.last %> )
+                      </div>
+                    </div>
+                  </div>
+                </a>
+                <a href="<%= busness_contribution_index_path %>" class="text-decoration-none">
+                  <div class="p-2 text-dark text-capitalize bg-hover-grey">
+                    <img src="/svg/dropdown/contributions.svg" class="w-8 mr-2" alt="My profile">
+                    Mes Contributions
+                  </div>
+                </a>
+                <a href="<%= dashboard_my_project_index_path %>" class="text-decoration-none">
+                  <div class="p-2 text-dark text-capitalize bg-hover-grey">
+                    <img src="/svg/dropdown/projets.svg" class="w-8 mr-2" alt="My profile">
+                    Mes projets
+                    <span class="badge ml-3 pl-1 pr-1 rounded-circle font-size-12 badge-secondary">3</span>
+                  </div>
+                </a>
+                <a href="#" class="text-decoration-none">
+                  <div class="p-2 text-dark text-capitalize bg-hover-grey">
+                    <img src="/svg/dropdown/organisation.svg" class="w-8 mr-2" alt="My profile">
+                    page d'organisation
+                  </div>
+                </a>
+                <a href="#" class="text-decoration-none">
+                  <div class="p-2 text-dark text-capitalize bg-hover-grey">
+                    <img src="/svg/dropdown/transactions.svg" class="w-8 mr-2" alt="My profile">
+                    Journales de transactions
+                  </div>
+                </a>
+                <a href="#" class="text-decoration-none">
+                  <div class="p-2 text-dark text-capitalize bg-hover-grey">
+                    <img src="/svg/dropdown/parametres.svg" class="w-8 mr-2" alt="My profile">
+                    Paramèttres
+                  </div>
+                </a>
+                <a>
+                  <div class="p-2 text-dark text-capitalize bg-hover-grey">
+                    <img src="/svg/dropdown/deconnexion.svg" class="w-8 mr-2" alt="My profile">
+                    <%= link_to "Déconnexion", destroy_user_session_path, :method => :delete, class: 'text-decoration-none text-dark' %>
+                  </div>
+                </a>
+              </ul>
+            <% else %>
+              <a href="/users/sign_in" class="nav-link font-size-14 nav-hover pointer border-left">
+                Connexion
+              </a>
+            <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+<script type="text/javascript" charset="utf-8">
+$(document).ready(function(){
+  $('#hide-sm-serch-div').click(function(){
+      $('#expand-serch-bar').hide(200);
+  });
+  $('#search').click(function(){
+      $('#expand-serch-bar').show(200);
+  });
+});
+</script>

@@ -1,0 +1,9 @@
+// Place all the styles related to the dashboard/user controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.h-index-os{
+  height: 7em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

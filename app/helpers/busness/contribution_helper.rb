@@ -1,0 +1,2 @@
+module Busness::ContributionHelper
+end

@@ -1,0 +1,152 @@
+    <section id="bonsplan" class="grid bonplan font-size-14">
+        <div class="nav-rigth flex justify-content-start pt-4">
+            <div class="w-75 h-auto bg-white border shadow-box flex flex-wrap">
+                <div class="w-circle-height m-1">Entreprise</div>
+                <div class="w-circle-height m-1">Association</div>
+                <div class="w-circle-height m-1">Particulier</div>
+                <div class="w-circle-height m-1">Particulier</div>
+            </div>
+        </div>
+        <div class="grid-title p-2 flex-column flex align-items-center justify-content-center flex-wrap">
+            <div class="w-75 text-center h-50">
+                <H1 class="text-uppercase color-blue">Bons plans</H1>
+                <p>être leader engagé, c'est aussi s'instruire et s'informer</p>
+            </div>
+            <div class="w-50 h-auto p-1 flex justify-content-center" id="input-submit">
+                <div class="w-30 mr-2">
+                    <label for="categorie" class="font-weight-bold color-blue">Catégorie</label> <br>
+                    <select name="categorie" id="categorie" class="w-100 select-option border-rbg bg-white text-center">
+                        <option value="date"></option>
+                        <option value="date2">2</option>
+                        <option value="date"3>3</option>
+                        <option value="date4">4</option>
+                    </select>
+                </div>
+                <div class="w-30 ml-2">
+                    <label for="date" class="font-weight-bold color-blue">Date</label> <br>
+                    <select name="date" id="date" class="w-100 select-option border-rbg bg-white text-center">
+                        <option value="date"></option>
+                        <option value="date2">2</option>
+                        <option value="date"3>3</option>
+                        <option value="date4">4</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="today p-2" id="today">
+            <div class="w-50 pl-4">
+                <h4 class="color-blue">Aujourd' hui</h4>
+            </div>
+            <div class="bg-hide-color flex justify-content-start">
+                <%for @i in 1..3 %>
+                  <div style="width:24%;min-width:24%;max-width:24%;" class="ml-1 p-1">
+                    <div class="card">
+                        <div class="bpn text-white font-weight-bold pl-2 pr-2 radius-3 text-center top-2 position-absolute right">Categorie</div>
+                      <img class="card-img-top w-100" src="/directory/user.jpeg" alt="Card image cap">
+                      <div class="card-body">
+                        <h5 class="card-title text-center">titre de l'evenement</h5>
+                      </div>
+                        <div class="flex justify-content-between pl-2 pr-2 _CtDt">
+                            <div class="w-50">
+                                Date
+                            </div>
+                            <div class="w-50">
+                                Lieu
+                            </div>
+                        </div>
+                      <div class="mt-1">
+                        <a href="<%= busness_planification_path(@i) %>" class="btn w-100 btn-primary">Details</a>
+                      </div>
+                    </div>
+                </div>
+                <% end %>
+            </div>
+        </div>
+        <div class="tomorrow p-2" id="tomorrow">
+            <div class="w-50 pl-4">
+                <h4 class="color-blue">Demain</h4>
+            </div>
+            <div class="bg-hide-color flex justify-content-start flex-wrap">
+                <%for @i in 1..4 %>
+                  <div style="width:24%;min-width:24%;max-width:24%;" class="ml-1 p-1">
+                    <div class="card">
+                        <div class="bpn text-white font-weight-bold pl-2 pr-2 radius-3 text-center top-2 position-absolute right">Categorie</div>
+                      <img class="card-img-top w-100" src="/directory/user.jpeg" alt="Card image cap">
+                      <div class="card-body">
+                        <h5 class="card-title text-center">titre de l'evenement</h5>
+                      </div>
+                        <div class="flex justify-content-between pl-2 pr-2 _CtDt">
+                            <div class="w-50">
+                                Date
+                            </div>
+                            <div class="w-50">
+                                Lieu
+                            </div>
+                        </div>
+                      <div class="mt-1">
+                        <a href="<%= busness_planification_path(@i) %>" class="btn w-100 btn-primary">Details</a>
+                      </div>
+                    </div>
+                </div>
+                <% end %>
+            </div>
+        </div>
+        <div class="week p-2">
+            <div class="w-50 pl-4">
+                <h4 class="color-blue">Cette semaine</h4>
+            </div>
+            <div class="bg-hide-color flex justify-content-start flex-wrap">
+                <%for @i in 0..6 %>
+                  <div class="ml-1 p-1 min-and-max">
+                    <div class="card">
+                        <div class="bpn text-white font-weight-bold pl-2 pr-2 radius-3 text-center top-2 position-absolute right">Categorie</div>
+                      <img class="card-img-top w-100" src="/directory/user.jpeg" alt="Card image cap">
+                      <div class="card-body">
+                        <h5 class="card-title text-center">titre de l'evenement</h5>
+                      </div>
+                        <div class="flex justify-content-between pl-2 pr-2 _CtDt">
+                            <div class="w-50">
+                                Date
+                            </div>
+                            <div class="w-50">
+                                Lieu
+                            </div>
+                        </div>
+                      <div class="mt-1">
+                        <button class="btn w-100 btn-primary">Details</button>
+                      </div>
+                    </div>
+                </div>
+                <% end %>
+            </div>
+        </div>
+        <div class="month p-2">
+            <div class="w-50 pl-4">
+                <h4 class="color-blue">Ce mois-ci</h4>
+            </div>
+            <div class="bg-hide-color flex justify-content-start flex-wrap">
+                <%for @i in 1..10 %>
+                  <div class="ml-1 p-1 min-and-max">
+                    <div class="card">
+                        <div class="bpn text-white font-weight-bold pl-2 pr-2 radius-3 text-center top-2 position-absolute right">Categorie</div>
+                      <img class="card-img-top w-100" src="/directory/user.jpeg" alt="Card image cap">
+                      <div class="card-body">
+                        <h5 class="card-title text-center">titre de l'evenement</h5>
+                      </div>
+                        <div class="flex justify-content-between w-100 pl-2 pr-2 _CtDt">
+                            <div class="w-50">
+                                Date
+                            </div>
+                            <div class="w-50">
+                                Lieu
+                            </div>
+                        </div>
+                      <div class="mt-1">
+                        <button class="btn w-100 btn-primary">Details</button>
+                      </div>
+                    </div>
+                </div>
+                <% end %>
+            </div>
+        </div>
+    </section>

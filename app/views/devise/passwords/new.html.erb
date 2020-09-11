@@ -1,0 +1,30 @@
+
+<div class="container">
+  <div class="flex w-100 justify-content-center align-items-center flex-md-grow-1 bg-white">
+    <div class="_WccDer p-3 pt-5 font-size-14 mt-4">
+      <div class="text-center pb-4 mb-2"><h2 class="text-black-50 ">Mot de passe oublié ?</h2></div>
+      <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+
+        <div class="field">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control box-none border-color"  %>
+        </div>
+
+        <div class="actions mt-4">
+          <%= f.submit "reset password", class:"form-control box-none border-color bg-color text-white"  %>
+        </div>
+      <% end %>
+
+
+    </div>
+  </div>
+</div>
+
+
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function(){
+      $('#resp-indent').hide();
+      $('.nav-bars-left').hide();
+  });
+</script>

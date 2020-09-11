@@ -1,0 +1,284 @@
+<style>
+      .progress{
+    width: 150px;
+    height: 150px;
+    line-height: 150px;
+    background: none;
+    margin: 0 auto;
+    box-shadow: none;
+    position: relative;
+}
+.progress:after{
+    content: "";
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 12px solid #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.progress > span{
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+}
+.progress .progress-left{
+    left: 0;
+}
+.progress .progress-bar{
+    width: 100%;
+    height: 100%;
+    background: none;
+    border-width: 12px;
+    border-style: solid;
+    position: absolute;
+    top: 0;
+}
+.progress .progress-left .progress-bar{
+    left: 100%;
+    border-top-right-radius: 80px;
+    border-bottom-right-radius: 80px;
+    border-left: 0;
+    -webkit-transform-origin: center left;
+    transform-origin: center left;
+}
+.progress .progress-right{
+    right: 0;
+}
+.progress .progress-right .progress-bar{
+    left: -100%;
+    border-top-left-radius: 80px;
+    border-bottom-left-radius: 80px;
+    border-right: 0;
+    -webkit-transform-origin: center right;
+    transform-origin: center right;
+    animation: loading-1 1.8s linear forwards;
+}
+.progress .progress-value{
+    width: 90%;
+    height: 90%;
+    border-radius: 50%;
+    background: #44484b;
+    font-size: 24px;
+    color: #fff;
+    line-height: 135px;
+    text-align: center;
+    position: absolute;
+    top: 5%;
+    left: 5%;
+}
+._progress-heigth{
+    height: 150px !important;
+}
+.w-40{
+    width:40%;
+}
+.progress.blue .progress-bar{
+    border-color: #049dff;
+}
+.progress.blue .progress-left .progress-bar{
+    animation: loading-2 1.5s linear forwards 1.8s;
+}
+.progress.yellow .progress-left .progress-bar{
+    animation: loading-3 1s linear forwards 1.8s;
+}
+.progress.pink .progress-bar{
+    border-color: #ed687c;
+}
+.progress.pink .progress-left .progress-bar{
+    animation: loading-4 0.4s linear forwards 1.8s;
+}
+.progress.green .progress-bar{
+    border-color: #1abc9c;
+}
+.progress.green .progress-left .progress-bar{
+    animation: loading-5 1.2s linear forwards 1.8s;
+}
+
+<%
+    value = @details.pourcentage
+    if value <= 50
+        loading_1 = ((value).to_i * 18)/5
+        loading_2 = 0
+    end
+    if value > 50 && value <= 100
+        loading_1 = 180
+        loading_2 = (((value).to_i - 50) *18)/5
+    end
+    if value > 100
+        loading_1 = 180
+        loading_2 = 180
+    end
+
+
+%>
+
+
+@keyframes loading-1{
+    0%{
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100%{
+        -webkit-transform: rotate(<%= loading_1 %>deg);
+        transform: rotate(<%= loading_1 %>deg);
+    }
+}
+@keyframes loading-2{
+    0%{
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100%{
+        -webkit-transform: rotate(180deg);
+        transform: rotate(<%= loading_2 %>deg);
+    }
+}
+
+@media only screen and (max-width: 990px){
+    .progress{ margin-bottom: 20px; }
+}
+</style>
+<section id="project" class="p-1 grid project-details">
+        <div class="project-img-show">
+            <div class="flex h-240" id="details-headers">
+                <div class="w-25 align-self-center text-right pr-5" id="number-suivie-details">
+                    <p>Suivie</p>
+                </div>
+                <div class=" p-2 w-50 mobile-and-641px">
+                  <% if @details.project_img.attached? %>
+                    <%= image_tag @details.project_img, class:"w-80 h-70", alt:"image-projet" %>
+                  <% else %>
+                    <img src="/directory/user.jpeg" class="w-80" alt="image-projet">
+                  <% end %>
+                </div>
+                <div class="w-50 mobile-and-641px">
+                    <div class="flex flex-column justify-content-center w-100">
+                        <h2><%= @details.title %></h2>
+                        <div class="slogan h-154">
+                          <%= @details.description %>
+                        </div>
+                        <div class="w-100 justify-self-end mb-5">
+                           <strong> Categorie</strong>: <span><%= @details.admin_about_categorie.name %></span> &&
+                            <strong>Odd</strong> : <span> <%= @details.admin_about_odd.name %> </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="border project-video p-2">
+            <div class="w-100 h-100 p-2">
+                  <% if @details.project_video.attached? %>
+                    <%= image_tag @details.project_video, class:"w-100 h-100" %>
+                  <% else %>
+                    <img src="/directory/user.jpeg" class="w-100 h-100" alt="image-projet">
+                  <% end %>
+            </div>
+        </div>
+        <div class="project-evolution p-2">
+            <div class="flex justify-content-center align-items-center">
+                <div class="w-50 heqCyUi mr-4">
+                    <div class="progress blue _progress-heigth">
+                        <span class="progress-left">
+                            <span class="progress-bar"></span>
+                        </span>
+                        <span class="progress-right">
+                            <span class="progress-bar"></span>
+                        </span>
+                        <div class="progress-value"><%= @details.pourcentage %> %</div>
+                    </div>
+                </div>
+                <div class="w-50">
+                    <p><strong><%= @details.collect_jeuton %></strong>
+                      <%= if @details.collect_jeuton > 1
+                          "jeutons collectées" else "jeuton collectée" end
+                      %></p>
+                    <p class="font-weight-bold"> <%= @details.jeuton %> </p>
+                </div>
+            </div>
+            <div class="flex justify-content-between text-center">
+                <div class="w-50">
+                    <p>Nombre de jours restant <br> <%= @details.rest_day %></p>
+                </div>
+                <div class="w-50">
+                    <p>Nombre de valifunders <br> 25</p>
+                </div>
+            </div>
+        </div>
+        <div class="project-own">
+            <button class="w-100 btn btn-primary pointer" disabled>
+                Porteur du projet
+            </button>
+            <div class="flex justify-content-center align-items-center p-2">
+              <div class="w-40 heqCyUi mr-4">
+                <% if @details.user.user_avatar.attached? %>
+                    <img src="" class="w-100 h-100 rounded-circle" alt="users">
+                <% else %>
+                    <img src="/directory/user.jpeg" class="w-100 h-100 rounded-circle" alt="users">
+                <% end %>
+                </div>
+                <div class="w-50">
+                    <p><%= @details.user.last %> <%= @details.user.first %></p>
+                    <p><%= @details.localisation %></p>
+                    <p>Nombre de projet créer: <strong><%= Project.where(user_id: @details.user.id, is_validate: true,is_validate_admin: true).count() %></strong> </p>
+                    <p>Nombre de projet soutenue</p>
+                </div>
+            </div>
+        </div>
+        <div class="button project-validate p-5">
+            <div class="flex justify-content-center align-items-center">
+                <button class="btn btn-primary w-25 soutenir">
+                    Soutenir ce projet
+                </button>
+            </div>
+            <br>
+            <div class="text-center">
+                Votre contribution vous sera integralement remboursée si le projet n'atteint pas 100% de son objectif <br>
+                <strong>Choisisez votre contrpartie</strong>
+            </div>
+        </div>
+        <div class="border contrepartie">
+            <div class="flex h-100">
+                <div class="w-10 bg-primary"></div>
+                <div class=" w-80 flex justify-content-start align-items-center overflow-hidden">
+
+                </div>
+                <div class="w-10 bg-primary"></div>
+            </div>
+        </div>
+    </section>
+    <section id="tabs" class="mt-4 pb-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 ">
+                    <nav>
+                        <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#apropos" role="tab" aria-controls="apropos" aria-selected="true">A propos du projet</a>
+                            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Actualités</a>
+                            <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Commentaires</a>
+                            <a class="nav-item nav-link" id="nav-about-tab" data-toggle="tab" href="#nav-about" role="tab" aria-controls="nav-about" aria-selected="false">Valifunders</a>
+                        </div>
+                    </nav>
+                    <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="apropos" role="tabpanel" aria-labelledby="nav-home-tab">
+                            Et et consectetur ipsum labore excepteur est proident excepteur ad velit occaecat qui minim occaecat veniam. Fugiat veniam incididunt anim aliqua enim pariatur veniam sunt est aute sit dolor anim. Velit non irure adipisicing aliqua ullamco irure incididunt irure non esse consectetur nostrud minim non minim occaecat. Amet duis do nisi duis veniam non est eiusmod tempor incididunt tempor dolor ipsum in qui sit. Exercitation mollit sit culpa nisi culpa non adipisicing reprehenderit do dolore. Duis reprehenderit occaecat anim ullamco ad duis occaecat ex.
+                        </div>
+                        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                            Et et consectetur ipsum labore excepteur est proident excepteur ad velit occaecat qui minim occaecat veniam. Fugiat veniam incididunt anim aliqua enim pariatur veniam sunt est aute sit dolor anim. Velit non irure adipisicing aliqua ullamco irure incididunt irure non esse consectetur nostrud minim non minim occaecat. Amet duis do nisi duis veniam non est eiusmod tempor incididunt tempor dolor ipsum in qui sit. Exercitation mollit sit culpa nisi culpa non adipisicing reprehenderit do dolore. Duis reprehenderit occaecat anim ullamco ad duis occaecat ex.
+                        </div>
+                        <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                            Et et consectetur ipsum labore excepteur est proident excepteur ad velit occaecat qui minim occaecat veniam. Fugiat veniam incididunt anim aliqua enim pariatur veniam sunt est aute sit dolor anim. Velit non irure adipisicing aliqua ullamco irure incididunt irure non esse consectetur nostrud minim non minim occaecat. Amet duis do nisi duis veniam non est eiusmod tempor incididunt tempor dolor ipsum in qui sit. Exercitation mollit sit culpa nisi culpa non adipisicing reprehenderit do dolore. Duis reprehenderit occaecat anim ullamco ad duis occaecat ex.
+                        </div>
+                        <div class="tab-pane fade" id="nav-about" role="tabpanel" aria-labelledby="nav-about-tab">
+                            Et et consectetur ipsum labore excepteur est proident excepteur ad velit occaecat qui minim occaecat veniam. Fugiat veniam incididunt anim aliqua enim pariatur veniam sunt est aute sit dolor anim. Velit non irure adipisicing aliqua ullamco irure incididunt irure non esse consectetur nostrud minim non minim occaecat. Amet duis do nisi duis veniam non est eiusmod tempor incididunt tempor dolor ipsum in qui sit. Exercitation mollit sit culpa nisi culpa non adipisicing reprehenderit do dolore. Duis reprehenderit occaecat anim ullamco ad duis occaecat ex.
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
